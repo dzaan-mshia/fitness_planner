@@ -1,7 +1,6 @@
-from fastapi import FastAPI
-from fastapi_sqlalchemy.middleware import DBSessionMiddleware
+from fastapi import FastAPI, Depends
+from fastapi.security import HTTPBearer
 
-import db.conf.db_configuration
 from controllers import planner_controller, authorization_controller
 
 app = FastAPI(openapi_url="/api/openapi.json")
