@@ -15,10 +15,8 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 Base.metadata.create_all(bind=engine)
 
+db_session: Session = SessionLocal()
 
-def get_session():
-    db_session: Session = SessionLocal()
-    try:
-        yield db_session
-    finally:
-        db_session.close()
+
+def get_session() -> Session:
+    return db_session
