@@ -21,6 +21,7 @@ def decode_jwt(token: str):
 
 
 def check_auth_token(token: str = Depends(HTTPBearer())) -> int:
+    # TODO: add check if sid is in logout_sessions
     payload = decode_jwt(token.credentials)
     if payload["exp"] < datetime.utcnow().timestamp():
         raise HTTPException(401, detail="Session expired. Please Login again.")
