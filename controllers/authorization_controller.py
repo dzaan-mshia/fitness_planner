@@ -21,4 +21,4 @@ def logout(auth_user_id: int = Depends(check_auth_token)):
 
 @router.post("/register", status_code=201)
 def registration(data: UserDTO):
-    return register_user(data)
+    register_user(data)

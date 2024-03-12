@@ -29,4 +29,4 @@ def hash_password(password: str) -> str:
 
 def register_user(data: UserDTO):
     data.password = hash_password(data.password)
-    return save_user(data)
+    save_user(data)
